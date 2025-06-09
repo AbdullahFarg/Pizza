@@ -22,5 +22,7 @@ namespace Pizza.CORE.DTOs
         public string? PhoneNumber { get; set; }
         [Required]
         public string? Address { get; set; }
+
+        public string AdminCode { get; set; } = "0000";
     }
 }

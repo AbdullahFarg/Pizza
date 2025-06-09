@@ -19,7 +19,7 @@ namespace Pizza2.API.Controllers
             _repository = repository;
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Customer,Admin")]
         [HttpGet("GetAllPizza")]
 
         public async Task<IActionResult> GetAllPizza()
@@ -33,7 +33,7 @@ namespace Pizza2.API.Controllers
                 p.AvailableSizes = sizes;
             return Ok(allpizza);
         }
-        //[Authorize]
+        [Authorize(Roles = "Customer,Admin")]
         [HttpPost("GetPizzaByName")]
         public async Task<IActionResult> GetPizza([FromBody]PizzaSummaryDto dto)
         {
@@ -43,6 +43,8 @@ namespace Pizza2.API.Controllers
             return Ok(p);
 
         }
+        [Authorize(Roles = "Customer,Admin")]
+
         [HttpPost("filterByPrice{x}")]
         public async Task<IActionResult> FilterPrice(int x)
         {
@@ -52,6 +54,9 @@ namespace Pizza2.API.Controllers
             return Ok(p);
 
         }
+
+        [Authorize(Roles = "Admin")]
+
         [HttpPost("AddPizza")]
         public async Task<IActionResult> AddPizza(PizzaDto p)
         {
@@ -64,6 +69,8 @@ namespace Pizza2.API.Controllers
             await _repository.AddAsync(new_pizza);
             return Ok(new_pizza);
         }
+        [Authorize(Roles = "Admin")]
+
         [HttpPut("Update{id}")]
         public async Task<IActionResult> UpdatePizza(int id , PizzaDto p)
         {
@@ -79,6 +86,9 @@ namespace Pizza2.API.Controllers
             _repository.Update(id , new_pizza);
             return Ok(new_pizza);
         }
+
+        [Authorize(Roles = "Admin")]
+
         [HttpDelete("Delete{id}")]
         public async Task<IActionResult> DeletePiza(int id)
         {

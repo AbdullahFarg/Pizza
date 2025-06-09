@@ -6,7 +6,7 @@ using Pizza.CORE.Iterfaces;
 
 namespace Pizza2.API.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -57,6 +57,16 @@ namespace Pizza2.API.Controllers
             if(dto.Email != null)
                 user.Email = dto.Email;
             return Ok(user);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            var user = await _userRepository.GetById(id);
+            if (user == null)
+                return NotFound("This User is not found!");
+            _userRepository.Delete(user);
+            return Ok("Deleted successfully");
         }
 
 

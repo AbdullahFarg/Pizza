@@ -8,7 +8,7 @@ using Pizza.CORE.Models;
 
 namespace Pizza2.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
 
     [Route("api/[controller]")]
     [ApiController]
@@ -20,7 +20,7 @@ namespace Pizza2.API.Controllers
         {
             _orderRepository = orderRepository;
         }
-
+        [Authorize(Roles= "Customer,Admin")]
         [HttpPost("createOrder")]
         public async Task<IActionResult> CreateOrder(CreateOrderDto dto)
         {
@@ -33,7 +33,7 @@ namespace Pizza2.API.Controllers
             var temp = await _orderRepository.GetAllAsync();
             return Ok(temp);
         }
-        
+        [Authorize(Roles = "Admin")]
         [HttpDelete("DeleteOrder){id}")]
         public async Task<IActionResult> DeleteOrder(int id)
         {
@@ -43,6 +43,7 @@ namespace Pizza2.API.Controllers
             _orderRepository.Delete(o);
             return Ok("Deleted successfully");
         }
+        [Authorize(Roles = "Customer,Admin")]
         [HttpPut("updateOrder")]
         public async Task<IActionResult> UpdateOrder(int id , CreateOrderDto dto)
         {

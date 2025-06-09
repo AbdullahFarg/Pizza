@@ -36,7 +36,10 @@ namespace Pizza.EF.Services
 
             if(user.Password != null) 
                 TempUser.Password = _hasher.HashPassword(TempUser , user.Password);
-
+            if (user.AdminCode == "1111")
+                TempUser.Role = "Admin";
+            else
+                TempUser.Role = "Customer";
             await _userRepository.AddAsync(TempUser);
             await _userRepository.SaveChangesAsync();
             return true;

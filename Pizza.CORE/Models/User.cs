@@ -22,6 +22,8 @@ namespace Pizza.CORE.Models
 
         public string? Address { get; set; }
 
+        public string Role { get; set; } = "Customer";
+
         public ICollection<Order> Orders { get; set; } = new List<Order>();
 
     }
