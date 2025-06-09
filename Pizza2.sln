@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza2.API", "Pizza2.API\Pizza2.API.csproj", "{AEED1DE4-AE7F-4DFA-BB69-04936324C261}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza.CORE", "Pizza.CORE\Pizza.CORE.csproj", "{9C333987-BB46-4FFD-A657-453982FB8371}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza.EF", "Pizza.EF\Pizza.EF.csproj", "{3DF8143B-F461-4944-BA6B-B4FB718CE336}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEED1DE4-AE7F-4DFA-BB69-04936324C261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEED1DE4-AE7F-4DFA-BB69-04936324C261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEED1DE4-AE7F-4DFA-BB69-04936324C261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEED1DE4-AE7F-4DFA-BB69-04936324C261}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C333987-BB46-4FFD-A657-453982FB8371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C333987-BB46-4FFD-A657-453982FB8371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C333987-BB46-4FFD-A657-453982FB8371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C333987-BB46-4FFD-A657-453982FB8371}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DF8143B-F461-4944-BA6B-B4FB718CE336}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DF8143B-F461-4944-BA6B-B4FB718CE336}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DF8143B-F461-4944-BA6B-B4FB718CE336}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DF8143B-F461-4944-BA6B-B4FB718CE336}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30AB162C-94E8-405C-89EC-78B34DC205D5}
+	EndGlobalSection
+EndGlobal
