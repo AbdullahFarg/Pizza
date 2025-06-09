@@ -63,6 +63,24 @@ namespace Pizza2.API.Controllers
             _orderRepository.Update(id , o);
             return Ok(o);
         }
+        [Authorize(Roles = "Customer,Admin")]
+        [HttpGet("GetOrderById/{id}")]
+        public async Task<IActionResult> GetOrderById(int id)
+        {
+            var o = await _orderRepository.GetByOrderId(id);
+            if (o == null)
+                return NotFound("This order not found!");
+            return Ok(o);
+        }
+        [Authorize(Roles = "Customer,Admin")]
+        [HttpGet("GetOrderByUserId/{id}")]
+        public async Task<IActionResult> GetOrderByUserId(int id)
+        {
+            var o = await _orderRepository.GetByUserId(id);
+            if (o == null)
+                return NotFound("This order not found!");
+            return Ok(o);
+        }
     }
 
 }

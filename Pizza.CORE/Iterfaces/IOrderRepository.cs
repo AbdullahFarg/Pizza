@@ -10,6 +10,7 @@ namespace Pizza.CORE.Iterfaces
 {
     public interface IOrderRepository : IRepository<Order>
     {
+        Task<IEnumerable<Order>> GetByUserId(int id);
         Task CreateOrderAsync(CreateOrderDto dto);
         Task<Order?> GetByOrderId(int id);
     }

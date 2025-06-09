@@ -16,6 +16,15 @@ namespace Pizza.EF.Services
         public OrderRepository(ApplicationDbContext context) : base(context)
         {
         }
+        public async Task<IEnumerable<Order>> GetByUserId(int id)
+        {
+            return await _dbset
+                .Include(o => o.OrderItems)
+                    .ThenInclude(oi => oi.Pizza)
+                .Include(o => o.Customer)
+                .Where(o => o.CustomerId == id)
+                .ToListAsync();
+        }
         public async Task<Order?> GetByOrderId(int id)
         {
             return await _dbset
@@ -62,6 +71,7 @@ namespace Pizza.EF.Services
             await _dbset.AddAsync(order);
             await SaveChangesAsync();
         }
+
 
     }
 }
