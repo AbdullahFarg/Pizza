@@ -1,6 +1,6 @@
 # 🍕 Pizza API
 
-![.NET](https://img.shields.io/badge/.NET-6.0-blue) ![License](https://img.shields.io/badge/license-MIT-green) ![Contributions](https://img.shields.io/badge/contributions-welcome-orange) ![Build Status](https://img.shields.io/github/actions/workflow/status/your-username/pizza/build.yml?branch=main) ![Code Coverage](https://img.shields.io/codecov/c/github/your-username/pizza) ![Issues](https://img.shields.io/github/issues/your-username/pizza) ![Forks](https://img.shields.io/github/forks/your-username/pizza) ![Stars](https://img.shields.io/github/stars/your-username/pizza)
+![.NET](https://img.shields.io/badge/.NET-6.0-blue) ![License](https://img.shields.io/badge/license-MIT-green) ![Contributions](https://img.shields.io/badge/contributions-welcome-orange) ![Issues](https://img.shields.io/github/issues/AbdullahFarg/pizza) ![Forks](https://img.shields.io/github/forks/AbdullahFarg/pizza) ![Stars](https://img.shields.io/github/stars/AbdullahFarg/pizza)
 
 ## 📖 Introduction
 Welcome to the **Pizza API**! This project is a robust and scalable backend solution for managing pizza orders, users, and more. Built with .NET 6.0, it leverages modern web development practices to deliver a seamless experience for developers and end-users alike.
