@@ -13,5 +13,6 @@ namespace Pizza.CORE.Iterfaces
         Task<IEnumerable<Order>> GetByUserId(int id);
         Task CreateOrderAsync(CreateOrderDto dto);
         Task<Order?> GetByOrderId(int id);
+        Task<string> GetOrderStatus(int id);
     }
 }

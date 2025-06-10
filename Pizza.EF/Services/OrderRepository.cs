@@ -34,6 +34,14 @@ namespace Pizza.EF.Services
                  .FirstOrDefaultAsync(o => o.Id == id);
 
         }
+        public async Task<string> GetOrderStatus(int id)
+        {
+            var order = await _dbset.FindAsync(id);
+            if (order == null)
+                throw new Exception($"Order with ID {id} not found.");
+            var status = order.Status.ToString();
+            return status;
+        }
         public async Task CreateOrderAsync(CreateOrderDto dto)
         {
             

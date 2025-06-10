@@ -81,6 +81,49 @@ namespace Pizza2.API.Controllers
                 return NotFound("This order not found!");
             return Ok(o);
         }
+        [Authorize(Roles = "Customer,Admin")]
+        [HttpGet("GetOrderStatus/{id}")]
+        
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetOrderStatus(int id)
+        {
+            try
+            {
+                var status = await _orderRepository.GetOrderStatus(id);
+                return Ok(status);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("GetAllOrdersByStatus/{status}")]
+        public async Task<IActionResult> GetAllOrdersByStatus(string status)
+        {
+            var orders = await _orderRepository.GetAllAsync();
+            var filteredOrders = orders.Where(o => o.Status.ToString().Equals(status, StringComparison.OrdinalIgnoreCase)).ToList();
+            if (filteredOrders.Count == 0)
+                return NotFound("No orders found with the specified status.");
+            return Ok(filteredOrders);
+        }
+
+        // update order status
+        [Authorize(Roles = "Admin")]
+        [HttpPut("UpdateOrderStatus/{id}")]
+        public async Task<IActionResult> UpdateOrderStatus(int id, OrderStatus status)
+        {
+            var order = await _orderRepository.GetByOrderId(id);
+            if (order == null)
+                return NotFound("Order not found.");
+
+            order.Status = status;
+            _orderRepository.Update(id, order);
+            return Ok("Order status updated successfully.");
+        }
+
+
     }
 
 }
